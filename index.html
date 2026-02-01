@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilly, Be My Valentine 💘</title>
+  <meta name="description" content="A romantic Valentine website for Tilly." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="floating-hearts" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">💘</span>
+        <div>
+          <div class="brand-title">For Tilly</div>
+          <div class="brand-sub" id="today"></div>
+        </div>
+      </div>
+      <div class="chip">Written with devotion by <strong>Kissinger</strong></div>
+    </header>
+
+    <section class="hero card">
+      <div class="hero-left">
+        <p class="kicker">a quiet confession</p>
+        <h1>Tilly, will you be my Valentine?</h1>
+        <p class="lead">
+          I wanted this to feel like you:
+          warm, intentional, and impossible to forget.
+          <br />
+          If love is a choice, then I choose you — slowly, tenderly, completely.
+        </p>
+
+        <div class="cta-row">
+          <button id="yesBtn" class="btn btn-primary" type="button">
+            Yes, I choose you 💞
+          </button>
+          <button id="noBtn" class="btn btn-ghost" type="button">
+            No 🙈
+          </button>
+          <button id="resetBtn" class="btn btn-soft" type="button" title="Reset">
+            Reset
+          </button>
+        </div>
+
+        <div class="status-row">
+          <span class="pill">Status</span>
+          <span id="status" class="pill pill-live">waiting…</span>
+        </div>
+
+        <p id="result" class="result" aria-live="polite"></p>
+      </div>
+
+      <div class="hero-right">
+        <div class="heart-card">
+          <div class="heart-big">❤️</div>
+          <div class="heart-text">
+            <div class="heart-title">Tonight, I’m yours.</div>
+            <div class="heart-sub">Say yes and let the page celebrate you.</div>
+          </div>
+        </div>
+
+        <div class="mini-card">
+          <div class="mini-title">Private by design</div>
+          <div class="mini-sub">
+            The story and gallery use your device only. On free hosting, nothing is uploaded to a server.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card tabs">
+      <div class="tablist" role="tablist" aria-label="Website tabs">
+        <button class="tab active" role="tab" id="tab-story" aria-controls="panel-story" aria-selected="true" type="button">
+          Our Story ✍️
+        </button>
+        <button class="tab" role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="false" type="button">
+          Gallery 📸🎥
+        </button>
+        <button class="tab" role="tab" id="tab-notes" aria-controls="panel-notes" aria-selected="false" type="button">
+          Little Notes 💌
+        </button>
+      </div>
+
+      <!-- Our Story -->
+      <section class="panel active" id="panel-story" role="tabpanel" aria-labelledby="tab-story">
+        <div class="panel-head">
+          <h2>Our history & dating dynamic</h2>
+          <p class="muted">
+            Write your story here — how it started, the moments that changed everything, and the way you fit together.
+            Saved privately on this device.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="storyTitle">Title</label>
+            <input id="storyTitle" type="text" placeholder="e.g., Our Love Story 💘" />
+          </div>
+          <div class="field">
+            <label for="storyVibe">Our vibe</label>
+            <input id="storyVibe" type="text" placeholder="e.g., soft devotion + deep comfort + magnetic chemistry 😌✨" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="storyText">Our story</label>
+          <textarea id="storyText" rows="11" placeholder="Write your story here…"></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button id="saveStory" class="btn btn-soft" type="button">Save 💾</button>
+          <button id="clearStory" class="btn btn-ghost" type="button">Clear</button>
+          <button id="demoStory" class="btn btn-ghost" type="button">Fill example</button>
+        </div>
+
+        <div class="story-meta">
+          <span id="storyStatus" class="muted">Nothing saved yet.</span>
+        </div>
+
+        <div class="preview">
+          <div class="preview-title">Preview</div>
+          <pre id="storyPreview"></pre>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section class="panel" id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery">
+        <div class="panel-head">
+          <h2>Our little gallery</h2>
+          <p class="muted">
+            Select photos/videos from your device to view them here (nothing uploads anywhere).
+          </p>
+        </div>
+
+        <div class="upload-grid">
+          <div class="upload-card">
+            <div class="upload-title">Photos</div>
+            <input id="photos" type="file" accept="image/*" multiple />
+            <div class="upload-hint">Pick a few favourites.</div>
+          </div>
+          <div class="upload-card">
+            <div class="upload-title">Videos</div>
+            <input id="videos" type="file" accept="video/*" multiple />
+            <div class="upload-hint">Short clips feel extra romantic.</div>
+          </div>
+        </div>
+
+        <div id="gallery" class="gallery"></div>
+      </section>
+
+      <!-- Little Notes -->
+      <section class="panel" id="panel-notes" role="tabpanel" aria-labelledby="tab-notes">
+        <div class="panel-head">
+          <h2>Little notes for you</h2>
+          <p class="muted">Tiny lines that feel like a kiss on the forehead.</p>
+        </div>
+
+        <div class="notes">
+          <div class="note">If you’re near, the world softens.</div>
+          <div class="note">I like you slowly. I love you deliberately.</div>
+          <div class="note">You don’t just light up a room — you calm it.</div>
+          <div class="note">I want every version of you, even the quiet ones.</div>
+          <div class="note">If you say yes, I’ll make it unforgettable.</div>
+        </div>
+
+        <div class="btn-row">
+          <button id="addNote" class="btn btn-soft" type="button">Add your own note</button>
+        </div>
+
+        <div id="customNotes" class="notes" style="margin-top:12px;"></div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <small>Made with love • <span id="year"></span></small>
+    </footer>
+  </main>
+
+  <!-- Modal for gallery preview -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-inner" role="dialog" aria-modal="true">
+      <div class="modal-top">
+        <div class="modal-title" id="modalTitle">Preview</div>
+        <button class="btn btn-ghost btn-mini" id="closeModal" type="button">Close ✖</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
